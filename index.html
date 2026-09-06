@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ko" data-theme="sky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>폭염의 위험성과 그 해결방안 - 2조</title>
+<style>
+  :root{
+    --bg:#0b2545; --fg:#ffffff; --accent:#5bc0eb; --sub:#a8dadc;
+    --font:"맑은 고딕","Malgun Gothic",sans-serif;
+  }
+  [data-theme="ocean"] { --bg:#0b2545; --fg:#ffffff; --accent:#5bc0eb; --sub:#a8dadc; }
+  [data-theme="forest"]{ --bg:#14281d; --fg:#f4fff8; --accent:#7cb518; --sub:#c3e8bd; }
+  [data-theme="sunset"]{ --bg:#3d1e2e; --fg:#fff5e1; --accent:#ff8c42; --sub:#ffd9a0; }
+  [data-theme="night"] { --bg:#12121c; --fg:#f0f0ff; --accent:#9b8cff; --sub:#c9c4e8; }
+  [data-theme="sky"]   { --bg:#ffffff; --fg:#16358c; --accent:#0d4fd6; --sub:#4a74c0; }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--fg);font-family:var(--font);overflow:hidden}
+  .slide{
+    position:absolute;inset:2vh 1.5vw;display:none;
+    flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:5vh 6vw;gap:2.2vh;
+    border:0.5vh solid var(--accent);border-radius:2vh;
+  }
+  .slide.on{display:flex}
+  h1{font-size:7vh;line-height:1.2;color:var(--accent)}
+  h2{font-size:5vh;line-height:1.25;color:var(--accent)}
+  p,li{font-size:3.4vh;line-height:1.5;color:var(--fg)}
+  ul{text-align:left;max-width:80%}
+  li{margin:1vh 0}
+  .team{font-size:3vh;color:var(--sub)}
+  .media{max-width:70%;max-height:52vh;border-radius:1.6vh}
+  .media.small{max-height:30vh;max-width:44vw}
+  .graph{width:min(72vw,860px);height:auto;display:block}
+  .graph text{font-family:var(--font);fill:var(--sub);font-size:12px}
+  .graph .bar{fill:var(--accent)}
+  .graph .base{fill:var(--fg);opacity:.3}
+  .graph .grid{stroke:var(--fg);stroke-width:1;opacity:.15}
+  .graph .line{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .graph .line.wind{stroke:var(--sub)}
+  .graph .dot{fill:var(--bg);stroke:var(--accent);stroke-width:3}
+  .graph .dot.wind{stroke:var(--sub)}
+  .reply{list-style:none;margin-left:1.5em}
+  .reply li::before{content:"↳ ";color:var(--accent)}
+  .plain{list-style:none}
+  .plain li::before{content:"• ";color:var(--accent)}
+  .graph .fill{fill:var(--accent);opacity:.12}
+  .hint{position:fixed;right:2vw;bottom:2vh;font-size:1.8vh;color:var(--sub);opacity:.7}
+  .page{position:fixed;left:2vw;bottom:2vh;font-size:1.8vh;color:var(--sub);opacity:.7}
+</style>
+</head>
+<body>
+
+<!-- 1. 표지 (★캠페인 이름이 정해지면 아래 큰 제목을 바꿔요) -->
+<section class="slide on">
+  <h1>폭염의 위험성과<br>그 해결방안</h1>
+  <p class="team">2조</p>
+</section>
+
+<!-- 2. 우리가 찾은 문제 -->
+<section class="slide">
+  <h2>우리가 찾은 문제</h2>
+  <ul>
+    <li>이번 여름이 매우 더웠습니다.</li>
+    <li>뉴스에서는 폭염으로 인한 온열질환자가 많다는 소식을 접했습니다.</li>
+    <li>최근 발생한 네팔 대홍수도 기온 상승으로 빙하가 녹아 발생한 문제라는 것을 깨달았습니다.</li>
+  </ul>
+</section>
+
+<!-- 3. 우리의 질문 (★우리의 질문이 정해지면 아래 문장을 바꿔요) -->
+<section class="slide">
+  <h2>우리의 질문</h2>
+  <p>우리가 어떻게 하면 폭염 속에서도<br>안전하고 시원하게 지낼 수 있을까?</p>
+</section>
+
+<!-- 2-1. 자료1: 폭염 일수 꺾은선 그래프 -->
+<section class="slide">
+  <h2>폭염이 점점 자주 찾아옵니다.</h2>
+  <p>최근 10년의 폭염 발생일수는 심한 변동성을 보이다가 최근 들어 오르고 있습니다.</p>
+  <svg class="graph" viewBox="0 0 780 300" role="img" aria-label="2016년부터 2025년까지 연도별 폭염일수 꺾은선 그래프">
+    <line class="grid" x1="110" y1="95.7" x2="740" y2="95.7"/>
+    <line class="grid" x1="110" y1="147.1" x2="740" y2="147.1"/>
+    <line class="grid" x1="110" y1="198.6" x2="740" y2="198.6"/>
+    <text x="96" y="99.7" text-anchor="end">30</text>
+    <text x="96" y="151.1" text-anchor="end">20</text>
+    <text x="96" y="202.6" text-anchor="end">10</text>
+    <line class="base" x1="110" y1="250" x2="740" y2="250"/>
+    <text x="110" y="45">폭염일수(일)</text>
+    <polyline class="line" points="110,126.6 180,183.1 250,70 320,172.9 390,229.4 460,157.4 530,198.6 600,152.3 670,80.3 740,106"/>
+    <circle class="dot" cx="110" cy="126.6" r="4.5"/>
+    <circle class="dot" cx="180" cy="183.1" r="4.5"/>
+    <circle class="dot" cx="250" cy="70" r="4.5"/>
+    <circle class="dot" cx="320" cy="172.9" r="4.5"/>
+    <circle class="dot" cx="390" cy="229.4" r="4.5"/>
+    <circle class="dot" cx="460" cy="157.4" r="4.5"/>
+    <circle class="dot" cx="530" cy="198.6" r="4.5"/>
+    <circle class="dot" cx="600" cy="152.3" r="4.5"/>
+    <circle class="dot" cx="670" cy="80.3" r="4.5"/>
+    <circle class="dot" cx="740" cy="106" r="4.5"/>
+    <text x="110" y="114.6">24</text>
+    <text x="180" y="171.1">13</text>
+    <text x="250" y="58">35</text>
+    <text x="320" y="160.9">15</text>
+    <text x="390" y="217.4">4</text>
+    <text x="460" y="145.4">18</text>
+    <text x="530" y="186.6">10</text>
+    <text x="600" y="140.3">19</text>
+    <text x="670" y="68.3">33</text>
+    <text x="740" y="94">28</text>
+    <text x="110" y="272">2016</text>
+    <text x="180" y="272">2017</text>
+    <text x="250" y="272">2018</text>
+    <text x="320" y="272">2019</text>
+    <text x="390" y="272">2020</text>
+    <text x="460" y="272">2021</text>
+    <text x="530" y="272">2022</text>
+    <text x="600" y="272">2023</text>
+    <text x="670" y="272">2024</text>
+    <text x="740" y="272">2025</text>
+    <text x="740" y="292" text-anchor="end">출처: 기상청</text>
+  </svg>
+</section>
+
+<!-- 2-2. 확인 퀴즈 ① -->
+<section class="slide">
+  <h2>확인 퀴즈 ①</h2>
+  <p>그래프에서 2020년 이후를 보고, 폭염일이 가장 많았던 해를 고르세요.</p>
+  <ul>
+    <li>① 2022년</li>
+    <li>② 2024년</li>
+    <li>③ 2025년</li>
+  </ul>
+  <p>정답은 다음 장에서.</p>
+</section>
+
+<!-- 2-3. 확인 퀴즈 ① 정답 -->
+<section class="slide">
+  <h2>정답은 ② 2024년.</h2>
+  <p>2020년 이후로는 2024년의 33일이 가장 많았습니다.</p>
+</section>
+
+<!-- 2-4. 자료2: 서울 기온 꺾은선 그래프 -->
+<section class="slide">
+  <h2>서울이 점점 더워집니다.</h2>
+  <ul>
+    <li>서울의 연평균기온은 점점 오르고 있습니다.</li>
+    <li>가장 추웠던 2011년(12.0℃)과 가장 더웠던 2024년(14.9℃)은 약 3℃ 차이입니다.</li>
+  </ul>
+  <svg class="graph" viewBox="0 0 780 300" role="img" aria-label="1997년부터 2025년까지 서울의 연평균기온 꺾은선 그래프">
+    <line class="grid" x1="110" y1="70" x2="740" y2="70"/>
+    <line class="grid" x1="110" y1="115" x2="740" y2="115"/>
+    <line class="grid" x1="110" y1="160" x2="740" y2="160"/>
+    <line class="grid" x1="110" y1="205" x2="740" y2="205"/>
+    <text x="96" y="74" text-anchor="end">15</text>
+    <text x="96" y="119" text-anchor="end">14</text>
+    <text x="96" y="164" text-anchor="end">13</text>
+    <text x="96" y="209" text-anchor="end">12</text>
+    <line class="base" x1="110" y1="250" x2="740" y2="250"/>
+    <text x="110" y="45">연평균기온(℃)</text>
+    <path class="fill" d="M110,250 L110,164.5 L132.5,124 L155,151 L177.5,173.5 L200,169 L222.5,164.5 L245,169 L267.5,146.5 L290,200.5 L312.5,160 L335,146.5 L357.5,164.5 L380,164.5 L402.5,200.5 L425,205 L447.5,196 L470,182.5 L492.5,142 L515,133 L537.5,133 L560,160 L582.5,164.5 L605,137.5 L627.5,151 L650,128.5 L672.5,151 L695,110.5 L717.5,74.5 L740,110.5 L740,250 Z"/>
+    <polyline class="line" points="110,164.5 132.5,124 155,151 177.5,173.5 200,169 222.5,164.5 245,169 267.5,146.5 290,200.5 312.5,160 335,146.5 357.5,164.5 380,164.5 402.5,200.5 425,205 447.5,196 470,182.5 492.5,142 515,133 537.5,133 560,160 582.5,164.5 605,137.5 627.5,151 650,128.5 672.5,151 695,110.5 717.5,74.5 740,110.5"/>
+    <circle class="dot" cx="110" cy="164.5" r="3"/>
+    <circle class="dot" cx="132.5" cy="124" r="3"/>
+    <circle class="dot" cx="155" cy="151" r="3"/>
+    <circle class="dot" cx="177.5" cy="173.5" r="3"/>
+    <circle class="dot" cx="200" cy="169" r="3"/>
+    <circle class="dot" cx="222.5" cy="164.5" r="3"/>
+    <circle class="dot" cx="245" cy="169" r="3"/>
+    <circle class="dot" cx="267.5" cy="146.5" r="3"/>
+    <circle class="dot" cx="290" cy="200.5" r="3"/>
+    <circle class="dot" cx="312.5" cy="160" r="3"/>
+    <circle class="dot" cx="335" cy="146.5" r="3"/>
+    <circle class="dot" cx="357.5" cy="164.5" r="3"/>
+    <circle class="dot" cx="380" cy="164.5" r="3"/>
+    <circle class="dot" cx="402.5" cy="200.5" r="3"/>
+    <circle class="dot" cx="425" cy="205" r="3"/>
+    <circle class="dot" cx="447.5" cy="196" r="3"/>
+    <circle class="dot" cx="470" cy="182.5" r="3"/>
+    <circle class="dot" cx="492.5" cy="142" r="3"/>
+    <circle class="dot" cx="515" cy="133" r="3"/>
+    <circle class="dot" cx="537.5" cy="133" r="3"/>
+    <circle class="dot" cx="560" cy="160" r="3"/>
+    <circle class="dot" cx="582.5" cy="164.5" r="3"/>
+    <circle class="dot" cx="605" cy="137.5" r="3"/>
+    <circle class="dot" cx="627.5" cy="151" r="3"/>
+    <circle class="dot" cx="650" cy="128.5" r="3"/>
+    <circle class="dot" cx="672.5" cy="151" r="3"/>
+    <circle class="dot" cx="695" cy="110.5" r="3"/>
+    <circle class="dot" cx="717.5" cy="74.5" r="3"/>
+    <circle class="dot" cx="740" cy="110.5" r="3"/>
+    <text x="425" y="226" text-anchor="middle">2011년 12.0℃</text>
+    <text x="717.5" y="62" text-anchor="middle">2024년 14.9℃</text>
+    <text x="110" y="272">1997</text>
+    <text x="290" y="272">2005</text>
+    <text x="402.5" y="272">2010</text>
+    <text x="515" y="272">2015</text>
+    <text x="627.5" y="272">2020</text>
+    <text x="740" y="272">2025</text>
+    <text x="740" y="292" text-anchor="end">출처: 기상청</text>
+  </svg>
+</section>
+
+<!-- 2-5. 확인 퀴즈 ② -->
+<section class="slide">
+  <h2>확인 퀴즈 ②</h2>
+  <p>서울의 연평균기온은 해가 갈수록 어떻게 변했습니까?</p>
+  <ul>
+    <li>① 점점 내려갔습니다.</li>
+    <li>② 거의 그대로였습니다.</li>
+    <li>③ 점점 올라갔습니다.</li>
+  </ul>
+  <p>정답은 다음 장에서.</p>
+</section>
+
+<!-- 2-6. 확인 퀴즈 ② 정답 -->
+<section class="slide">
+  <h2>정답은 ③ 점점 올라갔습니다.</h2>
+  <p>가장 추웠던 2011년(12.0℃)보다 2024년(14.9℃)이 약 3℃ 높았습니다.</p>
+</section>
+
+<!-- 2-7. 자료3: 전기를 만드는 에너지 꺾은선 그래프 -->
+<section class="slide">
+  <h2>전기를 만드는 에너지도 바뀌고 있습니다.</h2>
+  <ul>
+    <li>태양광·풍력 에너지로 만든 전기는 점점 늘고 있습니다.</li>
+    <li>태양광은 5년 사이 약 1.7배, 풍력은 약 1.5배로 증가했습니다.</li>
+  </ul>
+  <svg class="graph" viewBox="0 0 780 300" role="img" aria-label="2020년과 2025년의 태양광·풍력 연평균 발전량을 나타낸 꺾은선 그래프">
+    <line class="grid" x1="160" y1="80" x2="740" y2="80"/>
+    <line class="grid" x1="160" y1="122.5" x2="740" y2="122.5"/>
+    <line class="grid" x1="160" y1="165" x2="740" y2="165"/>
+    <line class="grid" x1="160" y1="207.5" x2="740" y2="207.5"/>
+    <text x="146" y="84" text-anchor="end">160</text>
+    <text x="146" y="126.5" text-anchor="end">120</text>
+    <text x="146" y="169" text-anchor="end">80</text>
+    <text x="146" y="211.5" text-anchor="end">40</text>
+    <line class="base" x1="160" y1="250" x2="740" y2="250"/>
+    <text x="160" y="45">연평균 발전량</text>
+    <polyline class="line" points="160,175 740,123.8"/>
+    <polyline class="line wind" points="160,173.1 740,132.9"/>
+    <circle class="dot" cx="160" cy="175" r="5"/>
+    <circle class="dot" cx="740" cy="123.8" r="5"/>
+    <circle class="dot wind" cx="160" cy="173.1" r="5"/>
+    <circle class="dot wind" cx="740" cy="132.9" r="5"/>
+    <text x="160" y="272">2020</text>
+    <text x="740" y="272">2025</text>
+    <line class="line" x1="560" y1="95" x2="600" y2="95"/>
+    <text x="610" y="99">태양광: 71 → 119</text>
+    <line class="line wind" x1="560" y1="117" x2="600" y2="117"/>
+    <text x="610" y="121">풍력: 72 → 110</text>
+    <text x="740" y="292" text-anchor="end">출처: EPSIS 전력통계</text>
+  </svg>
+</section>
+
+<!-- 2-8. 우리의 제안 -->
+<section class="slide">
+  <h2>그래서 우리는 이렇게 제안합니다.</h2>
+  <ul class="plain">
+    <li>지구를 덥게 하는 석탄·LNG 대신, 신재생에너지로 만드는 전기를 늘려야 합니다.</li>
+  </ul>
+  <ul class="reply">
+    <li>그런데 새 기술을 만드는 데는 돈이 많이 듭니다.</li>
+    <li>그래서 천천히, 단계적으로 기술을 발전시켜야 합니다.</li>
+  </ul>
+</section>
+
+<!-- 4. 우리의 캠페인 (★무엇을 하는지 정해지면 아래를 바꿔요) -->
+<section class="slide">
+  <h2>우리의 캠페인</h2>
+  <ul>
+    <li>우리는 집에서 더울 때 에어컨을 가능한 한 26도로 틀겠습니다.</li>
+    <li>우리는 미래세대를 살아갈 인재로서 기후변화에 대한 경각심을 많은 사람이 가지도록 촉구하겠습니다.</li>
+  </ul>
+</section>
+
+<!-- 6. 이렇게 실천합니다 — 1단계 중단 -->
+<section class="slide">
+  <h2>1단계. 중단(Stop!)</h2>
+  <img class="media small" src="assets/그림-중단.jpg" alt="폭염 때 야외활동을 중단하는 모습">
+  <p>기상청이 알려 준 "생존을 위한 3단계 행동수칙"입니다.</p>
+  <ul>
+    <li>폭염 특보가 발효되면 모든 야외활동을 중단합니다.</li>
+  </ul>
+  <p class="team">이 그림은 AI가 만든 이미지입니다.</p>
+</section>
+
+<!-- 6-1. 2단계 이동 -->
+<section class="slide">
+  <h2>2단계. 이동(Move!)</h2>
+  <img class="media small" src="assets/그림-이동.jpg" alt="무더위쉼터로 이동해 휴식하는 모습">
+  <ul>
+    <li>냉방시설이 없는 실내는 위험합니다.</li>
+    <li>무더위쉼터, 그늘 등 시원한 곳으로 이동해 수분을 보충하며 쉽니다.</li>
+  </ul>
+  <p class="team">이 그림은 AI가 만든 이미지입니다.</p>
+</section>
+
+<!-- 6-2. 3단계 확인 -->
+<section class="slide">
+  <h2>3단계. 확인(Check!)</h2>
+  <img class="media small" src="assets/그림-확인.jpg" alt="주변 이웃의 안부를 확인하는 모습">
+  <ul>
+    <li>주변의 독거노인과 이웃의 안부를 확인합니다.</li>
+    <li>어지러움·두통이 생기면 즉시 119에 신고하고 시원한 곳으로 이동합니다.</li>
+    <li>당신의 작은 행동이 많은 생명을 살립니다.</li>
+  </ul>
+  <p class="team">이 그림은 AI가 만든 이미지입니다.</p>
+</section>
+
+<!-- 5. 우리가 만든 것 -->
+<section class="slide">
+  <h2>우리가 만든 것</h2>
+  <img class="media" src="assets/그림-1.jpg" alt="우리가 만든 그림">
+  <p class="team">폭염 피해를 줄이는 데 도움이 되는 쿨링 포그 시스템이 탑재된 물분사 가로등입니다.</p>
+  <p class="team">이 그림은 AI가 만든 이미지입니다.</p>
+</section>
+
+<!-- 8. 정리 -->
+<section class="slide">
+  <p>지금까지 폭염이 우리 생활에 어떤 문제를 일으키는지,<br>어떻게 해결할 수 있는지 확인해 보았습니다.</p>
+</section>
+
+<!-- 7. 우리 팀 -->
+<section class="slide">
+  <h2>우리 팀</h2>
+  <p class="team">2조</p>
+  <p>폭염에서 친구들을 지키는 2조입니다.</p>
+  <p>들어 주셔서 고맙습니다.</p>
+</section>
+
+<!-- 여기에 친구들 슬라이드가 들어갑니다 (합쳐줘 를 쓰면 아래에 채워져요) -->
+
+<div class="page"><span id="now">1</span> / <span id="all">7</span></div>
+<div class="hint">← → 눌러서 넘기기</div>
+
+<!-- 움직임 라이브러리. 없어도 발표자료는 그대로 보인다 -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+
+<script>
+(function(){
+  var slides = document.querySelectorAll('.slide');
+  var i = 0;
+  document.getElementById('all').textContent = slides.length;
+
+  // 움직임을 불편해하는 사람을 위한 설정을 존중한다
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 장이 나타날 때 안쪽 요소가 아래에서 살짝 올라온다.
+  // GSAP 이 없거나(CDN 실패) 사용자가 움직임을 껐으면 그냥 보여준다.
+  // 무슨 일이 있어도 글은 보여야 한다. 인라인 스타일을 지워 원래 모습으로 돌린다.
+  function 무조건보이기(items){
+    for (var k = 0; k < items.length; k++) {
+      items[k].style.opacity = '';
+      items[k].style.transform = '';
+      items[k].style.translate = '';
+      items[k].style.rotate = '';
+      items[k].style.scale = '';
+    }
+  }
+
+  function animateIn(slide){
+    var items = slide.children;
+
+    // 움직임을 껐거나, CDN 이 실패했거나, 화면에 안 보이는 탭이면 그냥 보여준다.
+    // (안 보이는 탭에서는 브라우저가 애니메이션을 멈춰서 opacity 0 으로 굳는다)
+    if (reduceMotion || !window.gsap || document.hidden) {
+      무조건보이기(items);
+      return;
+    }
+
+    gsap.killTweensOf(items);
+    gsap.fromTo(items,
+      { opacity: 0, y: 18 },
+      { opacity: 1, y: 0, duration: 0.45, stagger: 0.08, ease: 'power2.out', clearProps: 'all' }
+    );
+
+    // 마지막 안전망: 1.2초 뒤에도 아직 투명하면 애니메이션을 포기하고 보여준다.
+    // 발표 중에 글이 안 보이는 것보다 움직임이 없는 게 낫다.
+    clearTimeout(slide.__safety);
+    slide.__safety = setTimeout(function(){
+      if (items.length && getComputedStyle(items[0]).opacity !== '1') {
+        gsap.killTweensOf(items);
+        무조건보이기(items);
+      }
+    }, 1200);
+  }
+
+  // 탭으로 돌아왔을 때 굳어 있으면 풀어 준다
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) { animateIn(slides[i]); }
+  });
+
+  function show(n){
+    if (n < 0) n = 0;
+    if (n > slides.length - 1) n = slides.length - 1;
+    slides[i].classList.remove('on');
+    i = n;
+    slides[i].classList.add('on');
+    document.getElementById('now').textContent = i + 1;
+    animateIn(slides[i]);
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { show(i+1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'PageUp')                   { show(i-1); }
+    if (e.key === 'Home') { show(0); }
+    if (e.key === 'End')  { show(slides.length-1); }
+  });
+  document.addEventListener('click', function(e){
+    show(e.clientX < window.innerWidth/3 ? i-1 : i+1);
+  });
+
+  // 첫 장에도 등장 애니메이션을 걸어 준다.
+  // CDN 이 늦게 도착할 수 있으니 load 까지 기다린다.
+  if (document.readyState === 'complete') { animateIn(slides[0]); }
+  else { window.addEventListener('load', function(){ animateIn(slides[0]); }); }
+})();
+</script>
+</body>
+</html>
